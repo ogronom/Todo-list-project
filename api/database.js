@@ -25,8 +25,7 @@ let db = new sqlite3.Database(DBTASKS, (err) => {
           // Table just created, creating some rows
           let insert = 'INSERT INTO tasks (title, details, status, priority, item_order) VALUES (?,?,?,?,?)';
           db.run(insert, ["Самолёты","Первым делом - самолёты","new","high",1]);
-          db.run(insert, ["Девушки","Ну а девушки потом","new","low",2]);
-          db.run(insert, ["Доделать приложение","Дедлайн - четверг. Допилить внешний вид, сделать билд, залить на гит и задеплоить","new","normal",3]);
+          db.run(insert, ["Девушки","Ну а девушки потом","new","normal",2]);
           db.run(insert, ["Окрошка на томатном соке с авокадо и креветками","https://lenta.com/recepty/recipes/okroshka-na-tomatnom-soke-s-avokado-i-krevetkami/","new","low",4]);
           db.run(insert, ["Встретиться с друзьями","","done","normal",5]);
         }
