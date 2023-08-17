@@ -44,3 +44,10 @@
   color: #a94442;
 }
 
+@media only screen and (max-width: 600px) {
+  .modal-window {
+    top: 10%;
+    left: 5%;
+    width: 90%;
+  }
+}
