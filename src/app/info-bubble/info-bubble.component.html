@@ -1,0 +1,7 @@
+<div class="info-bubble-container {{infoBubbleType}} {{startFadeOut ? 'fade-out' : ''}}">
+  <div class="info-bubble-text">
+    <div *ngIf="infoBubbleType == 'error' "><h5>Error</h5></div>
+    <div *ngIf="infoBubbleType == 'warning' "><h5>Warning</h5></div>
+    {{ infoBubbleMessage }}
+  </div>
+</div>

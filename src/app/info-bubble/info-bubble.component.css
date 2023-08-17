@@ -1,0 +1,42 @@
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.info {
+  background: rgba(40, 167, 69, 0.5);
+  color: #fafafa;;
+}
+.warning {
+  background: rgba(255, 193, 7, 0.5);
+}
+.error {
+  background: rgba(255, 47, 47, 0.5);
+  color: #fafafa;
+}
+
+.info-bubble-container {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  min-width: 150px;
+  min-height: 60px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+  /*text-align: center;*/
+  vertical-align: middle;
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+}
+.info-bubble-text {
+  margin: auto;
+}
+.fade-out {
+  animation: fadeout 2s;
+}

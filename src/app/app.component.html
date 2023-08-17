@@ -1,0 +1,49 @@
+<div id="container">
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-3-md"></div>
+        <div class="col-6-md page-header">
+          <img ngSrc="../assets/img/check-mark-white-small.png" height="40" width="40" alt="Check Icon">
+          <!--  Icon source: https://www.iconpacks.net/free-icon/check-mark-3279.html -->
+          <h3>Your TODO List</h3>
+        </div>
+        <div class="col-3-md"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-body content" role="main">
+    <div class="card-container">
+      <button class="card add-new" (click)="addNewTask()">
+        <img ngSrc="../assets/img/task-list-add-white.png" height="40" width="40" alt="Add task">
+      </button>
+    </div>
+<!--    <p>You may add, remove or edit tasks here.</p>-->
+
+    <app-tasks-dropdown *ngIf="tasks.length" [tasks]="tasks"
+                        (deleteTaskClick)="onDeleteTaskClick($event)"
+                        (editTaskClick)="onEditTaskClick($event)"
+                        (changeTaskStatusClick)="onChangeTaskStatusClick($event)"
+                        (orderChanged)="onOrderChange($event)"></app-tasks-dropdown>
+
+    <div class="no-items-in-the-list-warning text-center" *ngIf="!tasks.length">
+      <h3>There are no tasks in the list yet. You can <a target="_blank" class="link cursor-pointer" (click)="addNewTask()">add one</a> now.</h3>
+    </div>
+
+  </div>
+
+  <div #modal></div>
+
+  <app-info-bubble *ngIf="haveMessageToDisplay"
+                   [infoBubbleMessage] = "infoBubbleMessage"
+                   [infoBubbleType] = "infoBubbleType"
+                   [infoBubbleDisplayTime] = "infoBubbleDisplayTime"></app-info-bubble>
+
+  <footer>
+    <nav class="page-footer">
+      <div>Aut viam inveniam aut faciam. </div>
+      <div>&copy; 2023</div>
+    </nav>
+  </footer>
+</div>

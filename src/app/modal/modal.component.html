@@ -1,0 +1,61 @@
+<div class="modal-window" id="" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{ title }}</h5>
+      </div>
+      <div class="modal-body confirmation-modal" *ngIf="!taskEditMode">
+        {{ body }}
+      </div>
+      <div class="modal-body" *ngIf="taskEditMode">
+        <form #taskEditForm="ngForm" (ngSubmit)="onSubmit(taskEditForm)">
+          <div class="form-group">
+            <label for="title">Task name*</label>
+            <input id="title" name="title" class="form-control" [(ngModel)]="task.title"
+                   placeholder="Enter task name"
+                   required #titleField="ngModel"
+                   [class.field-error]="taskEditForm.submitted && titleField.invalid">
+            <div class="invalid-tooltip" [hidden]="!taskEditForm.submitted || titleField.valid">
+              Please enter task title
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="details">Details</label>
+            <textarea id="details" rows="4" class="form-control" name="details"
+                      placeholder="Enter task details"
+                      [(ngModel)]="task.details"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <select id="priority" class="form-control" name="priority" [(ngModel)]="task.priority">
+              <option *ngFor="let priority of priority_list" value="{{priority}}">{{priority | titlecase}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select id="status" class="form-control" name="status" [(ngModel)]="task.status">
+              <option *ngFor="let status of status_list" value="{{status}}">{{status | titlecase | replaceUnderscore}}</option>
+            </select>
+          </div>
+
+          <button hidden class="task-form-submit-btn">Save</button>
+
+        </form>
+<!--        <div>-->
+<!--          {{taskEditForm.value | json}}-->
+<!--          {{taskEditForm.valid}}-->
+<!--        </div>-->
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="confirm()">{{confirm_message}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" (click)="closeModalOnBackdropClick()"></div>
