@@ -10,10 +10,10 @@
 }
 
 .task-box {
-  padding: 20px 10px 20px;
+  /*padding: 20px 10px 20px 0;*/
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
-  display: flex;
+  display: table;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -55,8 +55,11 @@
 .task-info {
   overflow: clip;
   text-overflow: ellipsis;
-  padding-left: 10px;
+  /*padding-left: 20px;*/
   width: 90%;
+  display: table-cell;
+  padding: 20px;
+  vertical-align: middle;
 }
 .task-info i {
   padding-right: 10px;
@@ -70,23 +73,29 @@
 }
 .action-buttons {
   width: 40px;
+  display: table-cell;
+  vertical-align: middle;
 }
 .status-ribbon {
   width: 5%;
   height: 100%;
+  color: #ffffff;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
 }
-.status-ribbon.new {
-  background-color: green;
+.status-ribbon.normal {
+  background-color: #4ec26c;
 }
-.status-ribbon.in_progress {
-  background-color: blue;
+.status-ribbon.low {
+  background-color: #4c9cda;
 }
-.status-ribbon.stuck {
-  background-color: red;
+.status-ribbon.high {
+  background-color: #fc7069;
 }
-.status-ribbon.done {
-  background-color: #7f868d;
-}
+/*.status-ribbon.done {*/
+/*  background-color: #7f868d;*/
+/*}*/
 
 .btn-light {
   --bs-btn-bg: #ffffff;
@@ -106,5 +115,14 @@
 @media only screen and (max-width: 600px) {
   .task-list {
     width: unset;
+  }
+  .status-ribbon {
+    width: 10%;
+  }
+  .task-info {
+    width: 80%;
+  }
+  .action-buttons {
+    width: 10%;
   }
 }

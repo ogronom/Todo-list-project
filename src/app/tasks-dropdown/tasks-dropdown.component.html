@@ -1,11 +1,13 @@
 <div cdkDropList class="task-list" (cdkDropListDropped)="drop($event)">
   <div class="task-box" *ngFor="let task of tasks" cdkDrag>
-<!--    <div class="status-ribbon {{task.status}}">-->
-<!--      &nbsp;-->
-<!--    </div>-->
+    <div class="status-ribbon {{task.priority}}">
+      <i class="fa fa-fire" *ngIf="task.priority === 'high'"></i>
+      <i class="fa fa-coffee" *ngIf="task.priority === 'low'"></i>
+      <span *ngIf="task.priority === 'normal'">&nbsp;</span>
+    </div>
     <div class="task-info" (click)="onTaskClick(task)">
-      <i class="fa fa-fire" style="color: #ff0000;" *ngIf="task.priority === 'high'"></i>
-      <i class="fa fa-coffee"  style="color: #0000ff;" *ngIf="task.priority === 'low'"></i>
+<!--      <i class="fa fa-fire" style="color: #ff0000;" *ngIf="task.priority === 'high'"></i>-->
+<!--      <i class="fa fa-coffee"  style="color: #0000ff;" *ngIf="task.priority === 'low'"></i>-->
       <span class="title">
         <s *ngIf="task.status === 'done'">{{task.title}}</s>
         <span *ngIf="task.status !== 'done'">{{task.title}}</span>
