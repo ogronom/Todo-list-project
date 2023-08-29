@@ -40,7 +40,7 @@ export class ModalService {
     let factory = this.resolver.resolveComponentFactory(ModalComponent);
     this.componentRef = entry.createComponent(factory);
     this.componentRef.instance.taskEditMode = true;
-    this.componentRef.instance.task = task;
+    this.componentRef.instance.task = {...task};
     this.componentRef.instance.title = "Edit task";
     this.componentRef.instance.body = "";
     this.componentRef.instance.confirm_message = "Save";
